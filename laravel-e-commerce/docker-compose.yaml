@@ -19,7 +19,6 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
       target: php
     container_name: php
     environment:
@@ -29,7 +28,7 @@ services:
     volumes:
       - .:/var/www/html
     ports:
-      - "8080:80"
+      - "8000:8000"
     depends_on:
       - mysql
 volumes:
