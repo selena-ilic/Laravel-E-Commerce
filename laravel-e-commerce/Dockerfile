@@ -17,7 +17,8 @@ RUN apt-get update -y && apt-get install -y \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     zlib1g-dev \
-    netcat-openbsd
+    netcat-openbsd \
+    default-mysql-client
 
 # Composer
 COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer

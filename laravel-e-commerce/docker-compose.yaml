@@ -31,6 +31,20 @@ services:
       - "8000:8000"
     depends_on:
       - mysql
+
+  # phpMyAdmin Service
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "9000:80"
+    environment:
+      - PMA_HOST=${DB_HOST}
+      - PMA_PORT=${DB_PORT}
+      - PMA_ARBITRARY=1
+    depends_on:
+      - mysql
+      - php
 volumes:
   db-data:
     name: ecommerce-mysql
