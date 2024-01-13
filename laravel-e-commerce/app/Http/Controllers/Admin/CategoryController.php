@@ -81,5 +81,21 @@ class CategoryController extends Controller
 
         return redirect('/dashboard')->with('status', 'Category Updated Successfully');
     }
+
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        if ($category->image)
+        {
+            $path = 'assets/uploads/category/' . $category->image;
+            if (File::exists($path))
+            {
+                File::delete($path);
+            }
+        }
+        $category->delete();
+
+        return redirect('categories')->with('status', 'Category Deleted Successfully');
+    }
 }
 
