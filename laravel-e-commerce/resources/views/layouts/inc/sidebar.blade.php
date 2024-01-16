@@ -27,6 +27,18 @@
                     <p>Add Category</p>
                 </a>
             </li>
+            <li class="nav-item {{ \Illuminate\Support\Facades\Request::is('products') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('products') }}">
+                    <i class="material-icons">person</i>
+                    <p>Products</p>
+                </a>
+            </li>
+            <li class="nav-item {{ \Illuminate\Support\Facades\Request::is('add-product') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('add-product') }}">
+                    <i class="material-icons">content_paste</i>
+                    <p>Add Product</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
