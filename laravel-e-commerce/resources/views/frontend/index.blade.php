@@ -36,13 +36,15 @@
                 <div class="owl-carousel featured-carousel owl-theme">
                     @foreach($trending_categories as $trending_category)
                         <div class="item">
-                            <div class="card">
-                                <img src="{{ asset('assets/uploads/category/' . $trending_category->image) }}" alt="Category Image">
-                                <div class="card-body">
-                                    <h5>{{ $trending_category->name }}</h5>
-                                    <p>{{ $trending_category->description }}</p>
+                            <a href="{{ url('view-category/' . $trending_category->slug) }}">
+                                <div class="card">
+                                    <img src="{{ asset('assets/uploads/category/' . $trending_category->image) }}" alt="Category Image">
+                                    <div class="card-body">
+                                        <h5>{{ $trending_category->name }}</h5>
+                                        <p>{{ $trending_category->description }}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>
