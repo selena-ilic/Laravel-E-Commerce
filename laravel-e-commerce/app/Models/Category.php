@@ -19,7 +19,7 @@ class Category extends Model
         'popular',
         'image',
         'meta_title',
-        'meta_descrip',
+        'meta_description',
         'meta_keywords',
     ];
 }

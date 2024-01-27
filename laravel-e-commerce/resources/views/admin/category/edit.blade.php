@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="">Meta Description</label>
-                        <textarea name="meta_description" rows="3" class="form-control">{{ $category->meta_descrip }}</textarea>
+                        <textarea name="meta_description" rows="3" class="form-control">{{ $category->meta_description }}</textarea>
                     </div>
 
                     @if( $category->image )

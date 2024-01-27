@@ -20,7 +20,7 @@ return new class extends Migration
             $table->tinyInteger('popular')->default(0);
             $table->string('image');
             $table->string('meta_title');
-            $table->string('meta_descrip');
+            $table->string('meta_description');
             $table->string('meta_keywords');
             $table->timestamps();
         });

@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $category->popular = $request->input('popular') == true ? 1 : 0;
         $category->meta_title = $request->input('meta_title');
         $category->meta_keywords = $request->input('meta_keywords');
-        $category->meta_descrip = $request->input('meta_description');
+        $category->meta_description = $request->input('meta_description');
 
         $category->save();
         return redirect('/dashboard')->with('status', 'Category Added Successfully');
@@ -76,7 +76,7 @@ class CategoryController extends Controller
         $category->popular = $request->input('popular') == true ? 1 : 0;
         $category->meta_title = $request->input('meta_title');
         $category->meta_keywords = $request->input('meta_keywords');
-        $category->meta_descrip = $request->input('meta_description');
+        $category->meta_description = $request->input('meta_description');
         $category->update();
 
         return redirect('/dashboard')->with('status', 'Category Updated Successfully');
