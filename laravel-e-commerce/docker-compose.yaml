@@ -4,7 +4,7 @@ services:
   # MySQL Service
   mysql:
     image: mysql:8.0
-    container_name: mysql
+    container_name: ecommerce-mysql
     volumes:
       - db-data:/var/lib/mysql
     ports:
@@ -20,7 +20,7 @@ services:
     build:
       context: .
       target: php
-    container_name: php
+    container_name: ecommerce-php
     environment:
       - CONTAINER_ROLE=app
       - DB_HOST=${DB_HOST}
@@ -35,7 +35,7 @@ services:
   # phpMyAdmin Service
   phpmyadmin:
     image: phpmyadmin:latest
-    container_name: phpmyadmin
+    container_name: ecommerce-phpmyadmin
     ports:
       - "9000:80"
     environment:
