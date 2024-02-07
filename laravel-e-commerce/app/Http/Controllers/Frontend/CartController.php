@@ -35,4 +35,41 @@ class CartController extends Controller
             return response()->json(['status' => 'Login to Continue.']);
         }
     }
+
+    public function viewcart()
+    {
+        $cart_items = Cart::where('user_id', Auth::id())->get();
+        return view('frontend.cart', compact('cart_items'));
+    }
+
+    public function updateCart(Request $request)
+    {
+        $product_id = $request->input('product_id');
+        $product_qty = $request->input('product_qty');
+
+        if ( Auth::check() ) {
+            if ( Cart::where('product_id', $product_id)->where('user_id', Auth::id())->exists() ) {
+                $cart = Cart::where('product_id', $product_id)->where('user_id', Auth::id())->first();
+                $cart->product_qty = $product_qty;
+                $cart->update();
+
+                return response()->json(['status' => 'Quantity Updated Successfully.']);
+            }
+        }
+    }
+
+    public function deleteProduct(Request $request)
+    {
+        if ( Auth::check() ) {
+            $product_id = $request->input('product_id');
+
+            if ( Cart::where('product_id', $product_id)->where('user_id', Auth::id())->exists() ) {
+                $cart_item = Cart::where('product_id', $product_id)->where('user_id', Auth::id())->first();
+                $cart_item->delete();
+                return response()->json(['status' => 'Product Deleted Successfully.']);
+            }
+        } else {
+            return response()->json(['status' => 'Login to Continue.']);
+        }
+    }
 }

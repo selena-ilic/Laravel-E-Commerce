@@ -30,10 +30,14 @@ Route::get('category/{category_slug}/{product_slug}', [FrontendController::class
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('add-to-cart', [CartController::class, 'addProduct']);
+Route::post('delete-cart-item', [CartController::class, 'deleteProduct']);
+Route::post('update-cart', [CartController::class, 'updateCart']);
 
-Route::middleware(['auth'])->group(function () {
-    Route::post('add-to-cart', [CartController::class, 'addProduct']);
+Route::middleware(['auth'])->group( function () {
+    Route::get('cart', [CartController::class, 'viewcart']);
 });
+
 
 //Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 //
