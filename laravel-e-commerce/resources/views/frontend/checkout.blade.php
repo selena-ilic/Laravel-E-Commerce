@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+    <div class="py-3 mb-4 shadow-sm bg-warning border-top">
+        <div class="container">
+            <h6 class="mb-0">
+                <a href="{{ url('/') }}">Home</a>
+                /
+                <a href="{{ url('/checkout') }}">Checkout</a>
+            </h6>
+        </div>
+    </div>
 
     <div class="container mt-5">
         <div class="row">
@@ -61,7 +70,7 @@
 
             <div class="col-md-5">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h6>Order Details</h6>
                         <hr>
                         <table class="table table-striped">
@@ -83,7 +92,7 @@
                             </tbody>
                         </table>
                         <hr>
-                        <button class="btn btn-primary float-end">Place Order</button>
+                        <button class="btn btn-primary">Place Order</button>
                     </div>
                 </div>
             </div>
