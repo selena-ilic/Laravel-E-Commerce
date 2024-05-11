@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-3 my-auto">
                             <input type="hidden" value="{{ $item->product_id }}" class="product_id">
-                            @if($item->product->qty > $item->product_qty)
+                            @if($item->product->qty >= $item->product_qty)
                                 <label for="Quantity">Quantity</label>
                                 <div class="input-group text-center mb-3" style="width:130px">
                                     <button class="input-group-text change-quantity decrement-btn">-</button>
